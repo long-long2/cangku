@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 开启驼峰命名法 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 开启懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		
+	</settings> 
+	
+	<plugins>
+		<!-- 配置pagehelper分页插件 -->
+		<!-- PageHelper4.1.1 -->
+		<plugin interceptor="com.github.pagehelper.PageHelper"></plugin>
+	</plugins>
+</configuration>

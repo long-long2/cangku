@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bgs.dao.UserMapper">
+<resultMap id="chakan" type="cn.bgs.pojo.Items">
+    <id column="id" property="id"/>
+    <result column="num_actual" property="numActual"/>
+    <result column="new_client" property="newClient"/>
+    <result column="old_client" property="oldClient"/>
+    <result column="yx_client" property="yxClient"/>
+    <result column="money" property="money"/>
+    <result column="available" property="available"/>
+    <result column="createtime" property="createtime"/>
+    <result column="auto_timestamp" property="autoTimestamp"/>
+    <result column="plan_id" property="planId"/>
+    <result column="dept_id" property="deptId"/>
+    <result column="area_id" property="areaId"/>
+    <result column="area_code" property="areaCode"/>
+    <result column="user_id" property="userId"/>
+    <result column="user_code" property="userCode"/>
+    <association property="plan" javaType="cn.bgs.pojo.Plan">
+        <id column="id" property="id"/>
+        <result column="activities_name" property="activitiesName"/>
+        <result column="num_activities" property="numActivities"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="area_code" property="areaCode"/>
+        <result column="area_id" property="areaId"/>
+        <result column="available" property="available"/>
+        <result column="type" property="type"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="timestamp" property="timestamp"/>
+    </association>
+    <association property="areas" javaType="cn.bgs.pojo.Area">
+        <id column="id" property="id"/>
+        <result column="area_name" property="areaName"/>
+        <result column="area_code" property="areaCode"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="available" property="available"/>
+        <result column="type" property="type"/>
+    </association>
+</resultMap>
+<select id="login" resultType="cn.bgs.pojo.User">
+    select * from sys_user where usercode=#{usercode} and password=#{password}
+</select>
+
+    <update id="update">
+        update sys_user set password=#{password} where id=#{id}
+    </update>
+
+
+    <select id="list" resultType="cn.bgs.pojo.Dept">
+    select * from sys_dept  where id=#{deptId}
+</select>
+
+    <insert id="add">
+        insert  into plan
+        values
+         (null,
+         #{activitiesName},
+         #{numActivities},
+         #{deptId},
+         #{deptName},
+         #{areaCode},
+         #{areaId},
+         #{available},
+         #{type},
+         #{startTime},
+         #{endTime},
+         now())
+    </insert>
+    <select id="getlist" resultType="cn.bgs.pojo.Plan">
+        select * from plan where area_id=#{areaId} and available=1
+    </select>
+
+
+    <select id="getlist2" resultType="cn.bgs.pojo.Plan">
+        select * from plan where area_id=#{areaId} and available=2 or available=3
+    </select>
+
+    <select id="getlist3" resultType="cn.bgs.pojo.Plan">
+        select * from plan where area_id=#{areaId} and  available=3 or available=2
+    </select>
+
+    <select id="findbyid" resultType="cn.bgs.pojo.Plan">
+        select * from plan where id=#{id}
+    </select>
+
+    <update id="uptong" parameterType="cn.bgs.pojo.Plan">
+        update plan set    available=#{available} where id=#{id}
+    </update>
+    
+    
+    <update id="upshangbao">
+         update plan set activities_name=#{activitiesName},
+         num_activities=#{numActivities},
+         start_time=#{startTime},
+         end_time=#{endTime},
+         available=1 where id=#{id}
+    </update>
+
+
+
+
+
+
+
+
+
+    <select id="quanchas" resultType="cn.bgs.pojo.Plan">
+        select * from plan where id=#{id}
+    </select>
+    <insert id="add1" parameterType="cn.bgs.pojo.Items" keyProperty="id" useGeneratedKeys="true">
+        insert  into items
+        values
+         ( null,
+         #{numActual},
+         #{newClient},
+         #{oldClient},
+         #{yxClient},
+         #{money},
+         #{available},
+         #{createtime},
+         now(),
+         #{deptId},
+         #{areaId},
+         #{areaCode},
+         #{userId},
+         #{userCode},
+         #{planId})
+    </insert>
+    <update id="upbian" parameterType="cn.bgs.pojo.Plan">
+        update plan set    available=0 where id=#{id}
+    </update>
+
+
+
+    <insert id="addtupian">
+         insert  into attachment (item_id,fileextensions,url,date) values
+        <foreach collection="img" item="imgs" index="index" separator=",">
+            (#{imgs.itemId},#{imgs.fileextensions},#{imgs.url},now())
+        </foreach>
+
+    </insert>
+
+    <select id="tongji" resultType="cn.bgs.pojo.Za">
+            select sum(plan.num_activities)num_activities,
+        sum(items.num_actual)num_actual,
+        sum(items.new_client)new_client,
+        sum(items.old_client)old_client,
+        sum(items.yx_client)yx_client,
+        sum(items.money)money,
+        items.area_id ,
+        area.area_name
+        from items,plan,sys_area as area
+        where items.plan_id=plan.id and area.id=items.area_id
+        group by area.id
+    </select>
+
+
+    <select id="mingzi" resultType="cn.bgs.pojo.Shu">
+        select *,1 as isParent from sys_area
+    </select>
+
+
+
+    <select id="findby7" resultType="cn.bgs.pojo.Dept">
+        select *,dept_name as areaName from sys_dept where area_id=#{areaId}
+    </select>
+</mapper>

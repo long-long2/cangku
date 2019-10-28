@@ -1,0 +1,164 @@
+
+/*大威平台 安全中心 开始*/
+.platSafety{
+	/*width: 1200px;*/
+	height: 640px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background:#fff;
+}
+.platSafety .content_top{
+	/*width: 1160px;*/
+	height: 62px;
+	line-height: 62px;
+	margin: 0 auto;
+	border-bottom: 1px solid #C8C8C8;
+}
+.platSafety .content_top a{
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	border-radius: 25px;
+	font-size: 14px;
+	margin-right:20px;
+}
+.platSafety .content_top .a1{
+	width: 55px;
+	height: 25px;
+	line-height: 25px;
+	background:#FF3131;
+	font-size: 12px;
+	margin-left: 20px;
+}
+.platSafety .content_top .a2{
+	width: 140px;
+	height:33px;
+	line-height: 33px;
+	background:#FFAF30;
+	margin-left:100px;
+}
+.platSafety .content_top .a3{
+	width: 140px;
+	height:33px;
+	line-height: 33px;
+	background:#30A0FF;
+}
+.platSafety .content_top .a4{
+	width: 100px;
+	height:33px;
+	line-height: 33px;
+	background:#FF0000;
+}
+.platSafety .content_bottom{
+	/*width: 1160px;*/
+	height:570px;
+	margin: 0 auto;
+	position:relative;
+	overflow: hidden;
+}
+.platSafety .content_bottom .p1{
+	color: #2a2a2a;
+	font-size: 14px;
+	margin-left: 5px;
+}
+.platSafety .content_bottom .p1:nth-child(1){ 
+	margin-top: 20px;
+}
+.platSafety .content_bottom .p1:nth-child(2){ 
+	margin-top: 5px;
+}
+.platSafety .content_bottom .p2{
+	margin-top:15px;
+}
+.platSafety .content_bottom .p2 a{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	background: #9F9F9F;
+	border-radius: 20px;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	margin-right:15px;
+}
+.platSafety .content_bottom .p2 a.a1{
+	width: 100px;
+}
+.platSafety .content_bottom .p2 a.a2{
+	width: 100px;
+}
+.platSafety .content_bottom .p2 a.a3{
+	width: 100px;
+}
+.platSafety .content_bottom .p3{
+	margin-top: 30px;
+	color: #2a2a2a;
+}
+.platSafety .content_bottom .p3 span{
+	display: inline-block;
+	width:76px;
+	height:27px;
+	text-align: center;
+	border-bottom:2px solid #f00;
+}
+.platSafety .content_bottom .p44{
+	margin-left: 20px;
+	margin-top: 20px;
+	font-weight: bolder;
+}
+.platSafety .content_bottom .p5{
+	width:820px;
+	color: #A2A2A2;
+	font-size: 14px;
+	margin-top: 10px;
+	line-height: 25px;
+	letter-spacing: 2px;
+	padding-left: 20px;
+}
+.platSafety .content_bottom .yusuan{
+	width:283px;
+	height:164px;
+	border:1px solid #C4C4C4;
+	position: absolute;
+	top: 20px;
+	right: 10px;
+}
+.platSafety .content_bottom .yusuan>p{
+	margin-left: 45px;
+}
+.platSafety .content_bottom .yusuan>p:nth-child(1){
+	margin-top: 15px;
+}
+.platSafety .content_bottom .yusuan>p:nth-child(2){
+	margin-top: 5px;
+}
+.platSafety .content_bottom .yusuan>p{
+	font-size: 14px;
+	color: #555555;
+}
+.platSafety .content_bottom .yusuan div{
+	float: left;
+	width: 88px;
+	height: 34px;
+	border-right: 1px solid #8B8B8B;
+	margin-top:30px;
+}
+.platSafety .content_bottom .yusuan div:last-child{
+	border-right: 0;
+}
+.platSafety .content_bottom .yusuan div>p{
+	font-size: 14px;
+	color: #414141;
+	text-align:center;
+	margin-bottom: 4px;
+}
+.platSafety .content_bottom .yusuan div>p .sp1{
+	color:#2897FF;
+}
+.platSafety .content_bottom .yusuan div>p .sp2{
+	color:#FF2424;
+}
+.platSafety .content_bottom .yusuan div>p .sp3{
+	color:#FF2424;
+}
+
